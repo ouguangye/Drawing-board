@@ -1,5 +1,5 @@
-import QtQuick 2.15
-import QtQuick.Controls 2.15
+import QtQuick 2.0
+import QtQuick.Controls 2.0
 
 Canvas
 {
@@ -16,7 +16,7 @@ Canvas
     property real lastX
     property real lastY
 
-
+    smooth: true
 
     anchors
     {
@@ -61,14 +61,34 @@ Canvas
     {
         id:area;
         anchors.fill: parent;
+        cursorShape: Qt.BlankCursor     	//光标形状   BlankCursor隐藏系统光标
+        hoverEnabled: true							//监测光标位置变化
         onPressed:
         {
             canvas.lastX = mouseX;
             canvas.lastY = mouseY;
+
         }
         onPositionChanged:
         {
-            canvas.requestPaint()//当鼠标press位置改变  完成当前绘制
+            coustomCusor.x = mouseX - coustomCusor.width/4.5
+            coustomCusor.y = mouseY - coustomCusor.height
+
+            //console.log("y: "+ mouseY +" "+coustomCusor.y)
+
+            if(pressed){
+                canvas.requestPaint()//当鼠标press位置改变  完成当前绘制
+            }
         }
+
+    }
+
+    ColorChangedImage{
+        id: coustomCusor
+        imageSource:colorTools.isPen?"qrc:/resource/resource/pen_cursor.svg":"qrc:/resource/resource/eraser.svg"
+        imageWidth:24
+        imageHeight:24
+        imageColor:colorTools.isPen?colorTools.paintColor:"black"
+        isVisible:area.mouseY >= 5
     }
 }

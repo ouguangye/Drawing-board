@@ -1,5 +1,5 @@
-import QtQuick 2.15
-import QtQuick.Controls 2.15
+import QtQuick 2.0
+import QtQuick.Controls 2.0
 
 Row
 {
@@ -10,15 +10,17 @@ Row
         top: parent.top
         topMargin: 8
     }
-    property color paintColor: "#33b5e5"//设置初始画笔颜色
+    property color paintColor: "black"//设置初始画笔颜色
     property int _w: parent.width
     property bool isPen:true
 
     spacing: _w*0.01;
+
+
     Repeater
     {
         //四个colorSquare
-        model: ["#33B5E5", "#99CC00", "#FFBB33", "#FF4444"]//modelData 颜色数据
+        model: ["black","#33B5E5", "#99CC00", "#FFBB33", "#FF4444"]//modelData 颜色数据
         ColorSquare
         {
             id:red;
@@ -33,12 +35,11 @@ Row
         }
     }
 
-    Image {
-        width:colorTools._w*0.05
-        height:colorTools._w*0.05
-
-        source: colorTools.isPen?"./resource/erase.png":"./resource/erase_active.png"
-
+    ColorChangedImage{
+        imageSource:"qrc:/resource/resource/eraser.svg"
+        imageWidth:colorTools._w*0.05
+        imageHeight:colorTools._w*0.05
+        imageColor:colorTools.isPen?"black":"#37e5df"
         MouseArea{
             anchors.fill: parent
             onClicked:{

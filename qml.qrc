@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>ColorTools.qml</file>
+        <file>ColorSquare.qml</file>
+        <file>MyCanvas.qml</file>
+        <file>ColorChangedImage.qml</file>
+    </qresource>
+    <qresource prefix="/resource">
+        <file>resource/eraser.svg</file>
+        <file>resource/pen_cursor.svg</file>
+    </qresource>
+</RCC>
