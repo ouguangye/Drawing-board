@@ -9,5 +9,6 @@
     <qresource prefix="/resource">
         <file>resource/eraser.svg</file>
         <file>resource/pen_cursor.svg</file>
+        <file>resource/clear.svg</file>
     </qresource>
 </RCC>

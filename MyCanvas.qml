@@ -7,14 +7,18 @@ Canvas
 
 
     property color color: colorTools.paintColor
-
     property int lineWidth: 5
 
-    //property alias color: "green"
 
     //鼠标点击坐标位置
     property real lastX
     property real lastY
+
+
+    //为了防止清除画布抖动
+    property bool flag: false
+
+    signal clearMyCanvas()
 
     smooth: true
 
@@ -31,13 +35,23 @@ Canvas
     {
         var ctx = getContext("2d")
         if(colorTools.isPen){
-            draw1(ctx)
+            if(!flag){
+                draw1(ctx)
+            }
+            else{
+                flag = false
+            }
         }
         else{
             erase(ctx)
         }
-
     }
+
+    onClearMyCanvas:{
+       console.log("trigger")
+       clearCanvas()
+    }
+
 
     function draw1(ctx){
         ctx.lineWidth = canvas.lineWidth
@@ -55,6 +69,15 @@ Canvas
         lastX = area.mouseX
         lastY = area.mouseY
     }
+
+
+    function clearCanvas() {
+        flag = true
+        var ctx = canvas.getContext('2d');
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        canvas.requestPaint();
+    }
+
 
 
     MouseArea

@@ -11,6 +11,7 @@ Window
 
     ColorTools{
         id:colorTools
+        anchors.bottomMargin: 20
     }
 
     Rectangle

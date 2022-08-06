@@ -10,9 +10,11 @@ Row
         top: parent.top
         topMargin: 8
     }
+
     property color paintColor: "black"//设置初始画笔颜色
     property int _w: parent.width
     property bool isPen:true
+    property bool isClear: false
 
     spacing: _w*0.01;
 
@@ -44,6 +46,39 @@ Row
             anchors.fill: parent
             onClicked:{
                     colorTools.isPen = false
+            }
+        }
+    }
+
+    Image{
+        source:"qrc:/resource/resource/clear.svg"
+        width:colorTools._w*0.05
+        height:colorTools._w*0.05
+
+        property bool hover: false
+
+        ToolTip {
+            parent: parent
+            visible: parent.hover
+            text: "清空画布"
+        }
+
+        MouseArea{
+            anchors.fill: parent
+            hoverEnabled: true
+
+            onClicked:{
+                canvas.clearMyCanvas();
+            }
+
+            onEntered:
+            {
+                parent.hover = true
+            }
+
+            onExited:
+            {
+                parent.hover = false
             }
         }
     }
