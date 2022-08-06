@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.0
+import QtQuick.Dialogs 1.2
 
 Row
 {
@@ -14,7 +15,6 @@ Row
     property color paintColor: "black"//设置初始画笔颜色
     property int _w: parent.width
     property bool isPen:true
-    property bool isClear: false
 
     spacing: _w*0.01;
 
@@ -68,7 +68,7 @@ Row
             hoverEnabled: true
 
             onClicked:{
-                canvas.clearMyCanvas();
+                id_mesDialog.open()
             }
 
             onEntered:
@@ -81,5 +81,15 @@ Row
                 parent.hover = false
             }
         }
+    }
+
+    MessageDialog {
+        id:id_mesDialog
+        title: "警告"
+        icon: StandardIcon.Warning
+        text: "确定清除画布?"
+        standardButtons: StandardButton.Yes |StandardButton.No
+        Component.onCompleted: visible = false
+        onYes: canvas.clearMyCanvas();
     }
 }
