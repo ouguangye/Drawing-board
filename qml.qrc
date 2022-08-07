@@ -5,10 +5,12 @@
         <file>ColorSquare.qml</file>
         <file>MyCanvas.qml</file>
         <file>ColorChangedImage.qml</file>
+        <file>ClearIcon.qml</file>
     </qresource>
     <qresource prefix="/resource">
         <file>resource/eraser.svg</file>
         <file>resource/pen_cursor.svg</file>
         <file>resource/clear.svg</file>
+        <file>resource/ink.svg</file>
     </qresource>
 </RCC>
