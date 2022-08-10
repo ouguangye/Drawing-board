@@ -6,6 +6,8 @@
         <file>MyCanvas.qml</file>
         <file>ColorChangedImage.qml</file>
         <file>ClearIcon.qml</file>
+        <file>InkIcon.qml</file>
+        <file>MyPopup.qml</file>
     </qresource>
     <qresource prefix="/resource">
         <file>resource/eraser.svg</file>

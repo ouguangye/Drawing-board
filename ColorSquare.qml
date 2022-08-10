@@ -25,4 +25,8 @@ Rectangle
             colorSquare.clicked()
         }
     }
+
+    Component.onCompleted: {
+        //console.log("index: " + index)
+    }
 }

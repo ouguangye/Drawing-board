@@ -9,10 +9,6 @@ Item{
     width: myWidth
     height: myHeight
 
-    Component.onCompleted: {
-        console.log("size: "+myWidth)
-    }
-
     Image{
         source:"qrc:/resource/resource/clear.svg"
         width:parent.width
