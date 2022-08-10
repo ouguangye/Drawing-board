@@ -1,32 +1,8 @@
-import QtQuick 2.9
-import QtQuick.Window 2.2
+/* This file is generated and only relevant for integrating the project into a Qt 6 and cmake based
+C++ project. */
 
-Window
-{
-    visible: true
-    width: 900
-    height: 600
+import QtQuick
+import content
 
-    title: "WritePad"
-
-    ColorTools{
-        id:colorTools
-        anchors.bottomMargin: 20
-    }
-
-    Rectangle
-    {
-        anchors.fill: canvas
-        border.color: "#666"
-        border.width: 4;
-    }
-
-
-    MyCanvas{
-        id:canvas
-        color:colorTools.paintColor
-        lineWidth: 3
-    }
-
-
+App {
 }
