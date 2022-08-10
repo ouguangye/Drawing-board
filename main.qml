@@ -25,7 +25,7 @@ Window
     MyCanvas{
         id:canvas
         color:colorTools.paintColor
-        lineWidth: 3
+        lineWidth: 1
     }
 
 

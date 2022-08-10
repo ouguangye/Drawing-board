@@ -6,13 +6,13 @@ Popup {
      id: popup
 
      property double myWidth
-     property double myHeight
+     //property double myHeight
      property double colorSize
      property double myX
      property double myY
 
      width: myWidth
-     height: myHeight
+     //height: myHeight
 
      x: myX
      y: myY
@@ -23,24 +23,75 @@ Popup {
 
 
      GridLayout {
-        anchors.horizontalCenter: parent.horizontalCenter
-        columns: 4
-        Repeater{
-            model: ["#1abc9c","#2ecc71","#3498db","#9b59b6",
-                "#34495e","#f1c40f","#e67e22","#e74c3c","#ecf0f1",
-                "#95a5a6","#16a085","#27ae60","#2980b9","#8e44ad"]
-            ColorSquare
-            {
-                length: colorSize
-                color: modelData;
-                active: colorTools.isPen && colorTools.paintColor === color
-                onClicked:
-                {
-                    //console.log("isPen: " + colorTools.isPen)
-                    colorTools.paintColor = color
-                    colorTools.isPen = true
+         id:layout
+         anchors.horizontalCenter: parent.horizontalCenter
+         columns: 4
+         Repeater{
+             model: [
+                 "#c12c1f","#a72126","#f09199","#e60012","#dd7694", //红，5
+
+                 "#81663b","#9f6027","#d3a237","#fac03d",
+                 "#e18a3b","#b6a014","#ecd452","#ffee6f",  //黄，9
+
+                 "#84a729","#b7d332","#68945c","#a8bf8f", //绿，4
+                 "#108b96","#5aa4ae","#87c0ca", //浅蓝，3
+                 "#06436f","#547689","#106898","#422256",//深蓝，4
+                 "#6c216d","#8a1874", //紫，2
+                 "#95949a","black"
+             ]
+             ColorSquare
+             {
+                 length: colorSize
+                 color: modelData;
+                 active: colorTools.isPen && colorTools.paintColor === color
+                 onClicked:
+                 {
+                     //console.log("isPen: " + colorTools.isPen)
+                     colorTools.paintColor = color
+                     colorTools.isPen = true
+                 }
+             }
+         }
+     }
+
+     Item{
+         anchors.top: layout.bottom
+         anchors.topMargin: 10
+         anchors.left: parent.left
+         anchors.leftMargin: 10
+         width: parent.width
+         height: 20
+
+
+         Text {
+             id:tip
+             anchors.left: parent.left
+             anchors.bottom: sliderItem.bottom
+             anchors.bottomMargin: 5
+             font.pointSize:10
+             font.bold: true
+             text: qsTr("粗细: ")
+         }
+
+
+
+         Item{
+             id:sliderItem
+             anchors.left: tip.right
+             anchors.leftMargin: 2
+             anchors.verticalCenter: parent.verticalCenter
+             width: parent.width/3*2
+             height: parent.height
+             Slider{
+                anchors.fill: parent
+                from: 1
+                value: 1
+                to:10
+
+                onMoved: {
+                    canvas.lineWidth = value
                 }
-            }
-        }
+             }
+         }
      }
 }

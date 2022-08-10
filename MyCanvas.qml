@@ -65,7 +65,8 @@ Canvas
     }
 
     function erase(ctx){
-        ctx.clearRect(lastX-10,lastY-30,40,40)
+        var lineWidth = 20
+        ctx.clearRect(lastX-lineWidth/2,lastY-lineWidth/2,lineWidth,lineWidth)
         lastX = area.mouseX
         lastY = area.mouseY
     }

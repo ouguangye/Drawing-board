@@ -15,7 +15,7 @@ Row
 
     property color paintColor: "black"//设置初始画笔颜色
     property bool isPen:true
-    property double _iconSize: parent.width*0.05
+    property double _iconSize: parent.width*0.03
     spacing: parent.width*0.2;
 
     InkIcon{
@@ -24,10 +24,10 @@ Row
 
     MyPopup{
         id:myPopup
-        myWidth: 250
-        myHeight: 300
+        myWidth: parent.width*0.4
+        //myHeight: 300
         myX:- _iconSize-45
-        myY:60
+        myY:parent.height
         colorSize: _iconSize
     }
 
