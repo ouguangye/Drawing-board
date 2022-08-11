@@ -8,6 +8,7 @@
         <file>ClearIcon.qml</file>
         <file>InkIcon.qml</file>
         <file>MyPopup.qml</file>
+        <file>SaveIcon.qml</file>
     </qresource>
     <qresource prefix="/resource">
         <file>resource/eraser.svg</file>
@@ -15,5 +16,6 @@
         <file>resource/clear.svg</file>
         <file>resource/ink.svg</file>
         <file>resource/border.jpeg</file>
+        <file>resource/save.svg</file>
     </qresource>
 </RCC>

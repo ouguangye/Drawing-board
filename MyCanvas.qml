@@ -8,7 +8,6 @@ Canvas
 
     property color color: colorTools.paintColor
     property int lineWidth: 5
-    //property bool isInBorder:false
 
     //鼠标点击坐标位置
     property real lastX
@@ -29,7 +28,6 @@ Canvas
         if(colorTools.isPen){
             if(!flag){
                 draw1(ctx)
-                console.log("painting..")
             }
             else{
                 flag = false

@@ -44,6 +44,11 @@ Row
         }
     }
 
+    SaveIcon{
+        width: _iconSize
+        height: _iconSize
+    }
+
 
     ClearIcon{
         myWidth: parent._iconSize
