@@ -14,5 +14,6 @@
         <file>resource/pen_cursor.svg</file>
         <file>resource/clear.svg</file>
         <file>resource/ink.svg</file>
+        <file>resource/border.jpeg</file>
     </qresource>
 </RCC>

@@ -8,7 +8,7 @@ Canvas
 
     property color color: colorTools.paintColor
     property int lineWidth: 5
-
+    //property bool isInBorder:false
 
     //鼠标点击坐标位置
     property real lastX
@@ -22,21 +22,14 @@ Canvas
 
     smooth: true
 
-    anchors
-    {
-        left: parent.left;
-        right:parent.right;
-        top:colorTools.bottom;
-        bottom: parent.bottom;
-        margins: 8
-    }
-
     onPaint:
     {
         var ctx = getContext("2d")
+
         if(colorTools.isPen){
             if(!flag){
                 draw1(ctx)
+                console.log("painting..")
             }
             else{
                 flag = false
@@ -97,8 +90,6 @@ Canvas
         {
             coustomCusor.x = mouseX - coustomCusor.width/4.5
             coustomCusor.y = mouseY - coustomCusor.height
-
-            //console.log("y: "+ mouseY +" "+coustomCusor.y)
 
             if(pressed){
                 canvas.requestPaint()//当鼠标press位置改变  完成当前绘制
