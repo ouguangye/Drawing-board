@@ -24,7 +24,8 @@ Popup {
 
      GridLayout {
          id:layout
-         anchors.horizontalCenter: parent.horizontalCenter
+         anchors.left: parent.left
+         anchors.leftMargin: 35
          columns: 4
          Repeater{
              model: [
@@ -80,7 +81,7 @@ Popup {
              anchors.left: tip.right
              anchors.leftMargin: 2
              anchors.verticalCenter: parent.verticalCenter
-             width: parent.width/3*2
+             width: parent.width/2
              height: parent.height
              Slider{
                 anchors.fill: parent
